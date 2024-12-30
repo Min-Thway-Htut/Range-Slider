@@ -1,24 +1,19 @@
-import React, {useState} from 'react';
-import authContext from './auth-context';
-import Auth from './Auth';
+import React from 'react';
+import { TextProvider } from './TextProvider';
+import InputComponent from './InputComponent';
+import DisplayComponent from './DisplayComponent';
 
 function App() {
-
-  const [authstatus, setauthstatus] = 
-  useState(false);
-
-  const login = () => {
-    setauthstatus(true);
-  };
-
   return (
-      <React.Fragment>
-        <authContext.Provider
-        value={{status: authstatus, login: login}}>
-          <Auth />
-        </authContext.Provider>
-      </React.Fragment>
+    <TextProvider>
+      <div style={{ padding: '20px', fontFamily: 'Arial' }}>
+        <h1>useContext Example</h1>
+        <InputComponent />
+        <DisplayComponent />
+      </div>
+    </TextProvider>
   );
 }
 
 export default App;
+
